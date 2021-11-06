@@ -1,0 +1,96 @@
+openapi: 3.0.0
+info:
+  title: ShoppShop OpenAPI
+  version: 0.0.1
+  contact:
+    name: Vova Revenko
+    email: vova@revenko.org
+    url: 'https://github.com/vovarevenko'
+components:
+  schemas:
+    WithDates:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+          example: '1970-01-01T00:00:00.000Z'
+        updated:
+          type: string
+          format: date-time
+          example: '1970-01-01T00:00:00.000Z'
+        deleted:
+          type: string
+          format: date-time
+          example: '1970-01-01T00:00:00.000Z'
+    WithId:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 6185836fc9c8d259f4a2bc12
+          readOnly: true
+    Account:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/WithId'
+        - allOf:
+            - $ref: '#/components/schemas/WithDates'
+            - type: object
+              properties:
+                owner:
+                  $ref: '#/components/schemas/User'
+                name:
+                  type: string
+                  example: My Company
+      required:
+        - id
+        - owner
+        - name
+        - created
+        - updated
+    User:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/WithId'
+        - allOf:
+            - $ref: '#/components/schemas/WithDates'
+            - type: object
+              properties:
+                email:
+                  type: string
+                  example: johnsmith@example.com
+                emailNotVerified:
+                  type: boolean
+                  example: true
+                firstName:
+                  type: string
+                  example: John
+                lastName:
+                  type: string
+                  example: Smith
+                status:
+                  type: string
+                  enum:
+                    - active
+                    - deleted
+      required:
+        - id
+        - email
+        - firstName
+        - lastName
+        - created
+        - updated
+        - status
+paths:
+  /users:
+    get:
+      operationId: getUsers
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: pong
