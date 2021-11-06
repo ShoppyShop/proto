@@ -1,0 +1,12 @@
+type: object
+allOf:
+  - $ref: '../helpers/WithId.yml'
+  - $ref: './UserFields.yml'
+required:
+  - id
+  - email
+  - firstName
+  - lastName
+  - created
+  - updated
+  - status

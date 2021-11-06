@@ -1,0 +1,9 @@
+allOf:
+  - $ref: '../helpers/WithDates.yml'
+  - type: object
+    properties:
+      owner:
+        $ref: '../user/User.yml'
+      name:
+        type: string
+        example: My Company

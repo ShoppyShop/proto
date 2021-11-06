@@ -1,0 +1,26 @@
+{
+  "name": "@shoppyshop/proto",
+  "version": "0.0.1",
+  "description": "ShoppShop OpenAPI documentation.",
+  "homepage": "https://github.com/ShoppyShop/proto#readme",
+  "license": "MIT",
+  "author": "Vova Revenko <vova@revenko.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShoppyShop/proto.git"
+  },
+  "scripts": {
+    "build": "yarn build:json && yarn build:yaml",
+    "build:json": "swagger-cli bundle src/index.yml --outfile dist/bundle.json --type json",
+    "build:yaml": "swagger-cli bundle src/index.yml --outfile dist/bundle.yaml --type yaml",
+    "commit-dist": "git add ./dist && git commit -m '🐣 chore(dist): autobuild'",
+    "publish": "yarn build && yarn commit-dist && git push"
+  },
+  "devDependencies": {
+    "swagger-cli": "^4.0.4"
+  },
+  "engines": {
+    "node": "^16.13.0",
+    "yarn": "^1.22.17"
+  }
+}

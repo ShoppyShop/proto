@@ -1,0 +1,19 @@
+allOf:
+  - $ref: '../helpers/WithDates.yml'
+  - type: object
+    properties:
+      email:
+        type: string
+        example: johnsmith@example.com
+      emailNotVerified:
+        type: boolean
+        example: true
+      firstName:
+        type: string
+        example: John
+      lastName:
+        type: string
+        example: Smith
+      status:
+        type: string
+        enum: [active, deleted]

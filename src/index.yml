@@ -1,0 +1,13 @@
+openapi: 3.1.0
+
+info:
+  title: ShoppShop OpenAPI
+  version: 0.0.1
+  contact:
+    name: Vova Revenko
+    email: vova@revenko.org
+    url: https://github.com/vovarevenko
+
+components:
+  schemas:
+    $ref: './schemas/_index.yml'

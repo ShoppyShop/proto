@@ -1,0 +1,10 @@
+type: object
+allOf:
+  - $ref: '../helpers/WithId.yml'
+  - $ref: './AccountFields.yml'
+required:
+  - id
+  - owner
+  - name
+  - created
+  - updated
