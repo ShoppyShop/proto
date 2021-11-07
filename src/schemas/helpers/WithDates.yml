@@ -1,14 +1,14 @@
 type: object
 properties:
-  created:
+  createdAt:
     type: string
     format: date-time
     example: '1970-01-01T00:00:00.000Z'
-  updated:
+  updatedAt:
     type: string
     format: date-time
     example: '1970-01-01T00:00:00.000Z'
-  deleted:
+  deletedAt:
     type: string
     format: date-time
     example: '1970-01-01T00:00:00.000Z'

@@ -6,5 +6,5 @@ required:
   - id
   - owner
   - name
-  - created
-  - updated
+  - createdAt
+  - updatedAt
