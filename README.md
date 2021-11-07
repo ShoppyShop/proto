@@ -16,8 +16,8 @@ yarn build:yaml # dist/bundle.yaml
 yarn build      # both
 ```
 
-### Publish bundle
+### Push bundle
 
 ```bash
-yarn publish
+yarn push
 ```

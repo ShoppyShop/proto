@@ -14,7 +14,7 @@
     "build:json": "swagger-cli bundle src/index.yml --outfile dist/bundle.json --type json",
     "build:yaml": "swagger-cli bundle src/index.yml --outfile dist/bundle.yaml --type yaml",
     "commit-dist": "git add ./dist && git commit -m '🐣 chore(dist): autobuild'",
-    "publish": "yarn build && yarn commit-dist && git push"
+    "push": "yarn build && yarn commit-dist && git push"
   },
   "devDependencies": {
     "swagger-cli": "^4.0.4"
