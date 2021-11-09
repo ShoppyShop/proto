@@ -1,5 +1,4 @@
 allOf:
-  - $ref: '../helpers/WithDates.yml'
   - type: object
     properties:
       email:
@@ -14,3 +13,4 @@ allOf:
       lastName:
         type: string
         example: Smith
+  - $ref: '../helpers/WithDates.yml'

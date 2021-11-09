@@ -1,5 +1,4 @@
 allOf:
-  - $ref: '../helpers/WithDates.yml'
   - type: object
     properties:
       owner:
@@ -7,3 +6,4 @@ allOf:
       name:
         type: string
         example: My Company
+  - $ref: '../helpers/WithDates.yml'

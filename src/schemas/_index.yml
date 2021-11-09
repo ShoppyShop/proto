@@ -1,14 +1,14 @@
-WithDates:
-  $ref: './helpers/WithDates.yml'
-
-WithId:
-  $ref: './helpers/WithId.yml'
+User:
+  $ref: './user/User.yml'
 
 Account:
   $ref: './account/Account.yml'
 
-User:
-  $ref: './user/User.yml'
-
 Warehouse:
   $ref: './warehouse/Warehouse.yml'
+
+WithId:
+  $ref: './helpers/WithId.yml'
+
+WithDates:
+  $ref: './helpers/WithDates.yml'
