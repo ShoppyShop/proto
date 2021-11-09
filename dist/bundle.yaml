@@ -8,6 +8,78 @@ info:
     url: 'https://github.com/vovarevenko'
 components:
   schemas:
+    User:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/WithId'
+        - allOf:
+            - type: object
+              properties:
+                email:
+                  type: string
+                  example: johnsmith@example.com
+                emailNotVerified:
+                  type: boolean
+                  example: true
+                firstName:
+                  type: string
+                  example: John
+                lastName:
+                  type: string
+                  example: Smith
+            - $ref: '#/components/schemas/WithDates'
+      required:
+        - id
+        - email
+        - firstName
+        - lastName
+        - createdAt
+        - updatedAt
+    Account:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/WithId'
+        - allOf:
+            - type: object
+              properties:
+                owner:
+                  $ref: '#/components/schemas/User'
+                name:
+                  type: string
+                  example: My Company
+            - $ref: '#/components/schemas/WithDates'
+      required:
+        - id
+        - owner
+        - name
+        - createdAt
+        - updatedAt
+    Warehouse:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/WithId'
+        - allOf:
+            - type: object
+              properties:
+                account:
+                  $ref: '#/components/schemas/Account'
+                name:
+                  type: string
+                  example: Main
+            - $ref: '#/components/schemas/WithDates'
+      required:
+        - id
+        - account
+        - name
+        - createdAt
+        - updatedAt
+    WithId:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 6185836fc9c8d259f4a2bc12
+          readOnly: true
     WithDates:
       type: object
       properties:
@@ -23,78 +95,6 @@ components:
           type: string
           format: date-time
           example: '1970-01-01T00:00:00.000Z'
-    WithId:
-      type: object
-      properties:
-        id:
-          type: string
-          example: 6185836fc9c8d259f4a2bc12
-          readOnly: true
-    Account:
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/WithId'
-        - allOf:
-            - $ref: '#/components/schemas/WithDates'
-            - type: object
-              properties:
-                owner:
-                  $ref: '#/components/schemas/User'
-                name:
-                  type: string
-                  example: My Company
-      required:
-        - id
-        - owner
-        - name
-        - createdAt
-        - updatedAt
-    User:
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/WithId'
-        - allOf:
-            - $ref: '#/components/schemas/WithDates'
-            - type: object
-              properties:
-                email:
-                  type: string
-                  example: johnsmith@example.com
-                emailNotVerified:
-                  type: boolean
-                  example: true
-                firstName:
-                  type: string
-                  example: John
-                lastName:
-                  type: string
-                  example: Smith
-      required:
-        - id
-        - email
-        - firstName
-        - lastName
-        - createdAt
-        - updatedAt
-    Warehouse:
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/WithId'
-        - allOf:
-            - $ref: '#/components/schemas/WithDates'
-            - type: object
-              properties:
-                account:
-                  $ref: '#/components/schemas/Account'
-                name:
-                  type: string
-                  example: Main
-      required:
-        - id
-        - account
-        - name
-        - createdAt
-        - updatedAt
 paths:
   /users:
     get:

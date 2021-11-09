@@ -11,70 +11,6 @@
   },
   "components": {
     "schemas": {
-      "WithDates": {
-        "type": "object",
-        "properties": {
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "example": "1970-01-01T00:00:00.000Z"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "example": "1970-01-01T00:00:00.000Z"
-          },
-          "deletedAt": {
-            "type": "string",
-            "format": "date-time",
-            "example": "1970-01-01T00:00:00.000Z"
-          }
-        }
-      },
-      "WithId": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "example": "6185836fc9c8d259f4a2bc12",
-            "readOnly": true
-          }
-        }
-      },
-      "Account": {
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/WithId"
-          },
-          {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/WithDates"
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "owner": {
-                    "$ref": "#/components/schemas/User"
-                  },
-                  "name": {
-                    "type": "string",
-                    "example": "My Company"
-                  }
-                }
-              }
-            ]
-          }
-        ],
-        "required": [
-          "id",
-          "owner",
-          "name",
-          "createdAt",
-          "updatedAt"
-        ]
-      },
       "User": {
         "type": "object",
         "allOf": [
@@ -83,9 +19,6 @@
           },
           {
             "allOf": [
-              {
-                "$ref": "#/components/schemas/WithDates"
-              },
               {
                 "type": "object",
                 "properties": {
@@ -106,6 +39,9 @@
                     "example": "Smith"
                   }
                 }
+              },
+              {
+                "$ref": "#/components/schemas/WithDates"
               }
             ]
           }
@@ -119,7 +55,7 @@
           "updatedAt"
         ]
       },
-      "Warehouse": {
+      "Account": {
         "type": "object",
         "allOf": [
           {
@@ -128,8 +64,39 @@
           {
             "allOf": [
               {
-                "$ref": "#/components/schemas/WithDates"
+                "type": "object",
+                "properties": {
+                  "owner": {
+                    "$ref": "#/components/schemas/User"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "My Company"
+                  }
+                }
               },
+              {
+                "$ref": "#/components/schemas/WithDates"
+              }
+            ]
+          }
+        ],
+        "required": [
+          "id",
+          "owner",
+          "name",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "Warehouse": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/WithId"
+          },
+          {
+            "allOf": [
               {
                 "type": "object",
                 "properties": {
@@ -141,6 +108,9 @@
                     "example": "Main"
                   }
                 }
+              },
+              {
+                "$ref": "#/components/schemas/WithDates"
               }
             ]
           }
@@ -152,6 +122,36 @@
           "createdAt",
           "updatedAt"
         ]
+      },
+      "WithId": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "6185836fc9c8d259f4a2bc12",
+            "readOnly": true
+          }
+        }
+      },
+      "WithDates": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          },
+          "deletedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "1970-01-01T00:00:00.000Z"
+          }
+        }
       }
     }
   },
