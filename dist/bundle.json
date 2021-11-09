@@ -118,6 +118,40 @@
           "createdAt",
           "updatedAt"
         ]
+      },
+      "Warehouse": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/WithId"
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WithDates"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "account": {
+                    "$ref": "#/components/schemas/Account"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Main"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "required": [
+          "id",
+          "account",
+          "name",
+          "createdAt",
+          "updatedAt"
+        ]
       }
     }
   },
