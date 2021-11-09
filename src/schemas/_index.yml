@@ -9,3 +9,6 @@ Account:
 
 User:
   $ref: './user/User.yml'
+
+Warehouse:
+  $ref: './warehouse/Warehouse.yml'
