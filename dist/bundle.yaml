@@ -54,6 +54,25 @@ components:
         - name
         - createdAt
         - updatedAt
+    Catalog:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/WithId'
+        - allOf:
+            - type: object
+              properties:
+                account:
+                  $ref: '#/components/schemas/Account'
+                name:
+                  type: string
+                  example: For site
+            - $ref: '#/components/schemas/WithDates'
+      required:
+        - id
+        - account
+        - name
+        - createdAt
+        - updatedAt
     Warehouse:
       type: object
       allOf:
