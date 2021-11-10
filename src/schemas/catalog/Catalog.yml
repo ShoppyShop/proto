@@ -1,0 +1,10 @@
+type: object
+allOf:
+  - $ref: '../helpers/WithId.yml'
+  - $ref: './CatalogFields.yml'
+required:
+  - id
+  - account
+  - name
+  - createdAt
+  - updatedAt

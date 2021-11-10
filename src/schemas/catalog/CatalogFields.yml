@@ -1,0 +1,9 @@
+allOf:
+  - type: object
+    properties:
+      account:
+        $ref: '../account/Account.yml'
+      name:
+        type: string
+        example: For site
+  - $ref: '../helpers/WithDates.yml'

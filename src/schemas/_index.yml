@@ -4,6 +4,9 @@ User:
 Account:
   $ref: './account/Account.yml'
 
+Catalog:
+  $ref: './catalog/Catalog.yml'
+
 Warehouse:
   $ref: './warehouse/Warehouse.yml'
 
